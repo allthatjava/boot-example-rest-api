@@ -15,8 +15,12 @@ import brian.template.boot.rest.service.BootService;
 @RestController
 public class BootController 
 {
-	@Autowired
 	private BootService service;
+	
+	@Autowired
+	public BootController(BootService service) {
+		this.service = service;
+	}
 	
 	@GetMapping("/")
 	public Person getPerson()
