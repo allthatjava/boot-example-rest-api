@@ -1,13 +1,17 @@
 package brian.template.boot.rest.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import brian.template.boot.rest.controller.exception.PersonNotFoundException;
 import brian.template.boot.rest.controller.exception.SamePersonAlreadyExistException;
 import brian.template.boot.rest.domain.Person;
 import brian.template.boot.rest.service.BootService;
@@ -23,15 +27,25 @@ public class BootController
 	}
 	
 	@GetMapping("/")
-	public Person getPerson()
+	public Person getHello()
 	{
 		return new Person("Hello~", 99);
 	}
 	
-	@GetMapping("/search/{name}")
-	public List<Person> searchByName(@PathVariable("name") String name){
+	@GetMapping("/search")
+	public List<Person> searchByName(@RequestParam("name") String name){
 
 		return service.searchPersonalInfo(name);
+	}
+	
+	@GetMapping("/person/{name}")
+	public Person getPerson(@PathVariable("name") String name) throws PersonNotFoundException
+	{
+		Optional<Person> person = service.getPerson(name);
+		if( person != null && person.isPresent() )
+			return person.get();
+		else
+			throw new PersonNotFoundException("Name:"+name+" was not found");
 	}
 	
 	@PostMapping("/person")

@@ -2,9 +2,9 @@ package brian.template.boot.rest.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import brian.template.boot.rest.controller.exception.SamePersonAlreadyExistException;
@@ -39,5 +39,11 @@ public class BootService {
 			people.add(person);
 		
 		return person;
+	}
+	
+	public Optional<Person> getPerson(String name) {
+		return people.stream()
+				.filter(p-> name.equals(p.getName()))
+				.findFirst();
 	}
 }
