@@ -1,12 +1,12 @@
-package brian.template.boot.test.domain;
+package brian.template.boot.rest.domain;
 
-public class Hello {
+public class Person {
 	private String name;
 	private int age;
 
-	public Hello() {}
+	public Person() {}
 	
-	public Hello(String name, int age) {
+	public Person(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;
@@ -28,5 +28,7 @@ public class Hello {
 		this.age = age;
 	}
 	
-	
+	public String toString() {
+		return name+","+age;
+	}
 }
