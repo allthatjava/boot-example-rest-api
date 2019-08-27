@@ -50,6 +50,7 @@ public class BootControllerTest {
 		// Given
 		String searchName = "Barnie";
 		Optional<Person> expected = Optional.of( new Person( searchName, 44) );
+		
 		Mockito.when(service.getPerson(searchName)).thenReturn(expected);
 		
 		// Test

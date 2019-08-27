@@ -23,6 +23,7 @@ public class BootService {
 	}
 	
 	public List<Person> searchPersonalInfo(String name) {
+		
 		return people.stream()
 				.filter(h -> h.getName().toLowerCase().indexOf(name.toLowerCase()) > -1 )
 				.collect(Collectors.toList());
