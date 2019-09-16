@@ -3,7 +3,6 @@
 Simple example for Spring RESTfull Service.
 
 
-
 ## Simple RESTful API
 Only two services are included
 * __/__ : will return one hard coded Hello object that includes "Hello~" and 99
