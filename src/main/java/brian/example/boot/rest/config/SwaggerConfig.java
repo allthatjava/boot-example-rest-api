@@ -1,4 +1,4 @@
-package brian.template.boot.rest.config;
+package brian.example.boot.rest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors
-				.basePackage("brian.template.boot.rest.controller"))		// Where to look for the service
+				.basePackage("brian.example.boot.rest.controller"))		// Where to look for the service
 //                .paths(regex("/.*") )
 				.build();
 	}

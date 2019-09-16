@@ -1,4 +1,4 @@
-package brian.template.boot.rest.service;
+package brian.example.boot.rest.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import brian.template.boot.test.domain.Hello;
+import brian.example.boot.rest.domain.Hello;
 
 @Service
 public class BootService {
