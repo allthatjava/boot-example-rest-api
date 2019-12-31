@@ -15,7 +15,7 @@ Only two services are included
 		return new Hello("Hello~", 99);
 	}
 	
-	@GetMapping("/search/{name}")
+	@GetMapping("/search?name={name}")
 	public List<Hello> searchByName(@PathVariable("name") String name)
 	{
 		return service.searchPersonalInfo(name);

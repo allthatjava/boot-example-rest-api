@@ -13,14 +13,7 @@ import brian.template.boot.rest.domain.Person;
 @Service
 public class BootService {
 
-	List<Person> people = null;
-	
-	public BootService() {
-		people = new ArrayList<>();
-		people.add(new Person("Bob", 20));
-		people.add(new Person("Harry", 35));
-		people.add(new Person("Barnie", 44));
-	}
+	List<Person> people = new ArrayList<>();
 	
 	public List<Person> searchPersonalInfo(String name) {
 		
@@ -47,4 +40,5 @@ public class BootService {
 				.filter(p-> name.equals(p.getName()))
 				.findFirst();
 	}
+
 }
