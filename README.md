@@ -1,7 +1,7 @@
-# Spring Boot Example - RESTful API
+# Spring Boot Template - RESTful API
 
-Simple example for Spring RESTfull Service.
-
+Simple Template for Spring __RESTfull Service__ with automatically generated(bottom-up approach) __Swagger UI__.
+Please check the Git branch `next-step` [link](https://github.com/allthatjava/boot-example-rest-api/tree/next-step) to see how it will be implemented (with more features).
 
 ## Simple RESTful API
 Only two services are included
@@ -15,7 +15,7 @@ Only two services are included
 		return new Hello("Hello~", 99);
 	}
 	
-	@GetMapping("/search/{name}")
+	@GetMapping("/search?name={name}")
 	public List<Hello> searchByName(@PathVariable("name") String name)
 	{
 		return service.searchPersonalInfo(name);
