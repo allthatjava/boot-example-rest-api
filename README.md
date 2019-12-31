@@ -11,17 +11,17 @@ The following services are included
 * __/person__ :  [POST] The JSON format of Person object is expected in request body and it will be saved in memory
 
 ```java
-	@GetMapping("/")
-	public Hello getHello() {...}
+@GetMapping("/")
+public Hello getHello() {...}
 	
-	@GetMapping("/search")
-	public List<Person> searchByName(@RequestParam("name") String name){...}
+@GetMapping("/search")
+public List<Person> searchByName(@RequestParam("name") String name){...}
 
-	@GetMapping("/person/{name}")
-	public Person getPerson(@PathVariable("name") String name) throws PersonNotFoundException{...}
+@GetMapping("/person/{name}")
+public Person getPerson(@PathVariable("name") String name) throws PersonNotFoundException{...}
 
-    @PostMapping("/person")
-	public Person addPerson(Person person) throws SamePersonAlreadyExistException{...}
+@PostMapping("/person")
+public Person addPerson(Person person) throws SamePersonAlreadyExistException{...}
 ```
 
 ## RESTful Service API by Swagger
