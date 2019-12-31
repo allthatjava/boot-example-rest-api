@@ -4,22 +4,24 @@ Simple Template for Spring __RESTfull Service__ with automatically generated(bot
 Please check the similar but, Top-to-bottom approach RESTful webservice [here](https://github.com/allthatjava/boot-example-rest-api2) to see how it can be implemented.
 
 ## Simple RESTful API
-Only two services are included
-* __/__ : will return one hard coded Hello object that includes "Hello~" and 99
-* __/search/{name}__ : will return search results. (We have static names 'Bob', 'Will', and 'Barnie')
+The following services are included
+* __/__ : will return one hard coded Person object that has name "Hello~" and age 99
+* __/search?name={name}__ : will return search results. (We have static names 'Bob', 'Harry', and 'Barnie')
+* __/person/Bob__ : The JSON format of Person object will be returned
+* __/person__ :  [POST] The JSON format of Person object is expected in request body and it will be saved in memory
 
 ```java
 	@GetMapping("/")
-	public Hello getHello()
-	{
-		return new Hello("Hello~", 99);
-	}
+	public Hello getHello() {...}
 	
 	@GetMapping("/search")
-	public List<Person> searchByName(@RequestParam("name") String name){
+	public List<Person> searchByName(@RequestParam("name") String name){...}
 
-		return service.searchPersonalInfo(name);
-	}
+	@GetMapping("/person/{name}")
+	public Person getPerson(@PathVariable("name") String name) throws PersonNotFoundException{...}
+
+    @PostMapping("/person")
+	public Person addPerson(Person person) throws SamePersonAlreadyExistException{...}
 ```
 
 ## RESTful Service API by Swagger
