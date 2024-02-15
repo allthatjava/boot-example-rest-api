@@ -22,12 +22,20 @@ public Person getPerson(@PathVariable("name") String name) throws PersonNotFound
 
 @PostMapping("/person")
 public Person addPerson(Person person) throws SamePersonAlreadyExistException{...}
+
+@GetMapping("/timeout") // RestTemplate timeout example
+public ResponseEntity<String> timeoutTest(){...}
+
+@GetMapping("/restError")   // RestTempate server error handle example
+public ResponseEntity<String> restErrorTest(){...}
 ```
 
 ## RESTful Service API by Swagger
 To have automatically generated Swagger based on the provided service, the following dependencies are required
 
 ```
+    compile('org.apache.httpcomponents:httpclient:4.3.4');  // To test RestTemplate timeout
+
     compile('io.springfox:springfox-swagger2:2.9.2')        // To usw Swagger
     compile('io.springfox:springfox-swagger-ui:2.9.2')      // To show Swagger UI
 ```

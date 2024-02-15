@@ -27,7 +27,9 @@ dependencies {
     
     compile('io.springfox:springfox-swagger2:2.9.2')        // To usw Swagger
     compile('io.springfox:springfox-swagger-ui:2.9.2')      // To show Swagger UI
-    
+
+    compile('org.apache.httpcomponents:httpclient:4.3.4');  // To test RestTemplate timeout
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.mockito:mockito-core:2.1.0')           // Mockito Test
     
